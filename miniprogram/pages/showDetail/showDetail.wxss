@@ -1,0 +1,8 @@
+/* pages/showDetail/showDetail.wxss */
+swiper{ 
+  width: 100%;
+  height: 40vw;
+}
+image{
+  width: 100%
+}

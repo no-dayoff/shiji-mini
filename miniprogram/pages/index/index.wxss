@@ -1,0 +1,84 @@
+/* pages/newindex/newindex.wxss */
+page {
+
+  --weui-FG-3: hsla(0, 0%, 100%, .05);
+  --weui-FG-3: rgba(0, 0, 0, .1);
+  --weui-FG-2: rgba(0, 0, 0, .3);
+  --weui-FG-2: hsla(0, 0%, 100%, .3);
+  --weui-LINK: #576b95;
+  --weui-LINK: #7d90a9;
+}
+
+.weui-footer,
+.weui-footer__link {
+  font-size: 14px
+}
+
+.weui-footer {
+  text-align: center;
+  font-size: 14px
+}
+
+.weui-footer {
+  color: var(--weui-FG-2);
+  line-height: 1.4
+}
+
+.weui-footer a {
+  color: var(--weui-LINK)
+}
+
+.weui-footer_fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-bottom: calc(16px + constant(safe-area-inset-bottom));
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  left: constant(safe-area-inset-left);
+  left: env(safe-area-inset-left);
+  right: constant(safe-area-inset-right);
+  right: env(safe-area-inset-right)
+}
+
+.weui-footer__links {
+  font-size: 0
+}
+
+.weui-footer__link {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px;
+  position: relative;
+  font-size: 14px
+}
+
+.weui-footer__link:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid var(--weui-FG-3);
+  color: var(--weui-FG-3);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleX(.5);
+  transform: scaleX(.5);
+  left: -8px;
+  top: .36em;
+  bottom: .36em
+}
+
+.weui-footer__link:first-child:before {
+  display: none
+}
+
+.weui-footer__text {
+  padding: 0 16px;
+  font-size: 12px;
+  color: rgb(172, 172, 172)
+}

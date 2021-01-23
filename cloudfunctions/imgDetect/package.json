@@ -1,0 +1,16 @@
+{
+  "name": "imgDetect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "~2.3.2",
+    "baidu-aip-sdk": "^2.4.6"
+
+  }
+}

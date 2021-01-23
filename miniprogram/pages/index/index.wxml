@@ -1,0 +1,25 @@
+<van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="smile-comment-o" speed="{{30}}"
+  text="不知道要做什么的话，就试试万物识别吧！随便一张图片都可以哦~" />
+<van-grid column-num="1">
+  <van-grid-item icon="fire-o" text="万物识别" icon-color="red" badge="99+" data-typeindex="0" bindtap="toUpload" />
+</van-grid>
+<van-grid column-num="2">
+  <van-grid-item icon="photo-o" text="动物识别" icon-color="#008B8B" bindtap="toUpload" data-typeindex="1" />
+  <van-grid-item icon="flower-o" text="植物识别" icon-color="#008B8B" bindtap="toUpload" data-typeindex="2" />
+</van-grid>
+<van-grid column-num="2">
+  <van-grid-item icon="birthday-cake-o" text="菜品识别" icon-color="#FA8072" bindtap="toUpload" data-typeindex="3" />
+  <van-grid-item icon="bag-o" text="果蔬识别" icon-color="	#FF6347" bindtap="toUpload" data-typeindex="4" />
+</van-grid>
+<van-grid column-num="2">
+  <van-grid-item icon="logistics" text="车型识别" icon-color="#1989fa" bindtap="toUpload" data-typeindex="5" />
+  <van-grid-item icon="location-o" text="地标识别" icon-color="#1989fa" bindtap="toUpload" data-typeindex="6" />
+</van-grid>
+<van-grid column-num="2">
+  <van-grid-item icon="bill-o" text="货币识别" icon-color="#EF7B26" bindtap="toUpload" data-typeindex="7" />
+  <van-grid-item icon="hot-o" text="LOGO识别" icon-color="#EF7B26" bindtap="toUpload" data-typeindex="8" />
+</van-grid>
+<view class="weui-footer weui-footer_fixed-bottom">
+  <a href="javascript:home();" class="weui-footer__link">识几</a>
+  <view class="weui-footer__text">Copyright ©2021 lhzheng</view>
+</view>

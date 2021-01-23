@@ -1,0 +1,114 @@
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<van-notify id="van-notify" />
+<!-- 单图片展示 -->
+<view wx:if="{{typeIndex>=6||typeIndex==4}}">
+  <image src="{{imgUrl}}" mode="aspectFit"></image>
+</view>
+<!--多张图片轮播 -->
+<view wx:if="{{typeIndex<=3||typeIndex==5}}">
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" circular="true" style="height:250px">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view> <text>\n</text></view>
+<!-- 万物识别逻辑 -->
+<view wx:if="{{typeIndex==0}}">
+  <van-row>
+    <van-col span="20" offset="2">
+      <van-cell title="识别标签" icon="search">
+        <van-tag type="success" round size="large">{{result[0].root}}</van-tag>
+      </van-cell>
+      <van-cell title="关键词{{index+1}}：" wx:for="{{keywordArr}}" wx:key="index" icon="success">
+        <van-tag type="primary" size="large">{{item}}</van-tag>
+      </van-cell>
+    </van-col>
+  </van-row>
+</view>
+<!-- 万物识别逻辑结束 -->
+
+<!-- 除了万物 地标 和货币识别-->
+<view wx:if="{{typeIndex!=0 && typeIndex!=6 && typeIndex!=7}}">
+  <van-row>
+    <van-col span="20" offset="2">
+      <van-cell title="识别结果" icon="search">
+        <van-tag type="primary" round size="large">{{result[0].name}}</van-tag>
+      </van-cell>
+      <van-cell title="汽车颜色" icon="eye-o" wx:if="{{color_result}}">
+        <van-tag type="primary" round size="large">{{color_result}}</van-tag>
+      </van-cell>
+      <van-cell title="汽车年份" icon="info-o" wx:if="{{result[0].year}}">
+        <van-tag type="primary" round size="large">{{result[0].year}}</van-tag>
+      </van-cell>
+      <van-cell title="卡路里/100g" icon="hot-o" wx:if="{{result[0].has_calorie}}">
+        <van-tag type="primary" round size="large">{{result[0].calorie}}cal</van-tag>
+      </van-cell>
+      <van-cell title="热量/100g" icon="hot-o" wx:if="{{result[0].has_calorie}}">
+        <van-tag type="primary" round size="large">{{(result[0].calorie)*4.186}}千焦(KJ)</van-tag>
+      </van-cell>
+      <van-collapse value="{{ activeNames }}" bind:change="onChange">
+        <van-collapse-item title="描述" name="1" icon="comment-o" value="{{tips}}">
+          {{description}}
+        </van-collapse-item>
+      </van-collapse>
+      <van-cell size="large" label="识别准确率">
+      </van-cell>
+      <van-progress percentage="{{percentage}}" />
+    </van-col>
+  </van-row>
+</view>
+<!-- 货币识别的页面 开始 -->
+<view wx:if="{{typeIndex==7}}">
+  <van-row>
+    <van-col span="20" offset="2">
+      <van-cell title="货币名称" icon="gold-coin-o">
+        <van-tag type="primary" round size="large">{{result.currencyName}}</van-tag>
+      </van-cell>
+      <view wx:if="{{result.hasdetail}}">
+        <van-cell title="货币代码" icon="ecard-pay">
+          <van-tag type="primary" round size="large">{{result.currencyCode}}</van-tag>
+        </van-cell>
+        <van-cell title="货币面值" icon="points">
+          <van-tag type="primary" round size="large">{{result.currencyDenomination}}{{result.currencyName}}</van-tag>
+        </van-cell>
+        <van-cell title="货币年份" icon="cash-on-deliver">
+          <van-tag type="primary" round size="large">{{result.year}}</van-tag>
+        </van-cell>
+      </view>
+    </van-col>
+  </van-row>
+</view>
+<!-- 货币识别的页面 结束-->
+<!-- 地标识别开始 -->
+<view wx:if="{{typeIndex==6}}">
+  <van-row>
+    <van-col span="20" offset="2">
+      <van-cell title="地标" icon="location-o">
+        <van-tag type="success" round size="large">{{landmark}}</van-tag>
+      </van-cell>
+    </van-col>
+  </van-row>
+</view>
+<!-- 地标识别结束 -->
+<view> <text>\n</text></view>
+<view> <text>\n</text></view>
+<view> <text>\n</text></view>
+<van-row>
+  <van-col span="9" offset="2">
+    <van-button icon="wap-home-o" plain hairline type="info" block bind:click="goHome">回到首页</van-button>
+  </van-col>
+  <van-col span="9" offset="2">
+    <van-button icon="share-o" type="warning" block open-type="share">分享给朋友</van-button>
+  </van-col>
+</van-row>
+<view> <text>\n</text></view>
+<van-row>
+  <van-col span="20" offset="2">
+    <van-button icon="question-o" plain hairline type="danger" block bind:click="goDialog">结果不准确？Tap Me!</van-button>
+  </van-col>
+</van-row>
+<view> <text>\n</text></view>

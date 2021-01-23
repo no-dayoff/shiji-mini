@@ -1,0 +1,28 @@
+<van-row>
+    <van-col offset="8" span="8">
+        <van-image width="9rem" height="10rem" fit="contain" src="{{tempFilePaths}}" />
+    </van-col>
+</van-row>
+<van-toast id="van-toast" />
+<van-notify id="van-notify" />
+<van-row>
+    <van-col span="20" offset="2">
+        <van-cell title="识别类型" is-link bind:click="showPopup" value="{{typeValue}}" arrow-direction="down" />
+        <van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 40%" round>
+            <van-picker columns="{{ columns }}" title="当前识别类型" bind:cancel="onClose" bind:confirm="onConfirm"
+                show-toolbar class="picker1" />
+        </van-popup>
+    </van-col>
+</van-row>
+<view> <text>\n</text></view>
+<van-row>
+    <van-col span="20" offset="2">
+        <van-button icon="photograph" plain hairline type="info" block bind:click="doUpload">选择图片</van-button>
+    </van-col>
+</van-row>
+<view> <text>\n</text></view>
+<van-row>
+    <van-col span="20" offset="2">
+        <van-button icon="passed" type="info" block disabled="{{disabled}}" bind:click="doCloud">开始识别</van-button>
+    </van-col>
+</van-row>
